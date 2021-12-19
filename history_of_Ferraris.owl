@@ -1,3 +1,282 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#"
+     xml:base="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris"/>
+
+    <!-- [Object properties] -->
+
+    <!-- TRIVIA -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_trivia">
+        <rdfs:label xml:lang="en">has trivia</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Model"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Trivia"/>
+    </owl:ObjectProperty>
+
+    <!-- ENGINE -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_engine">
+        <rdfs:label xml:lang="en">has engine</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Model"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Engine"/>
+    </owl:ObjectProperty>
+
+    <!-- ENGINE PROPERTIES -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_engine_type">
+        <rdfs:label xml:lang="en">has engine type</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Engine"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#EngineType"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_stroke">
+        <rdfs:label xml:lang="en">has bore/stroke</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Engine"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Stroke"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_unitary_displacement">
+        <rdfs:label xml:lang="en">has unitary displacement</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Engine"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Displacement"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_total_displacement">
+        <rdfs:label xml:lang="en">has total displacement</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Engine"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Displacement"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_compression_ratio">
+        <rdfs:label xml:lang="en">has compression ratio</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Engine"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Compression_ratio"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_maximum_power">
+        <rdfs:label xml:lang="en">has horsepower</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Engine"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Power"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_power_per_liter">
+        <rdfs:label xml:lang="en">has power per liter</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Engine"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Power_per_liter"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_maximum_torque">
+        <rdfs:label xml:lang="en">has horsepower</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Engine"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Torque"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_valve_actuation">
+        <rdfs:label xml:lang="en">has valve actuation</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Engine"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Valve_actuation"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_fuel_feed">
+        <rdfs:label xml:lang="en">has fuel feed</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Engine"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Fuel_feed"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_ignition">
+        <rdfs:label xml:lang="en">has ignition</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Engine"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Ignition"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_lubrication">
+        <rdfs:label xml:lang="en">has lubrication</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Engine"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Lubrication"/>
+    </owl:ObjectProperty>
+
+    <!-- CHASSIS -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_chassis">
+        <rdfs:label xml:lang="en">has chassis</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Model"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Chassis"/>
+    </owl:ObjectProperty>
+
+    <!-- CHASSIS PROPERTIES -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_chassis">
+        <rdfs:label xml:lang="en">has chasis</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Model"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Chassis"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_frame">
+        <rdfs:label xml:lang="en">has frame</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Chassis"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Frame"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_front_suspension">
+        <rdfs:label xml:lang="en">has front suspension</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Chassis"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Suspension"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_rear_suspension">
+        <rdfs:label xml:lang="en">has rear suspension</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Chassis"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Suspension"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_brake">
+        <rdfs:label xml:lang="en">has front brake</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Chassis"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Brake"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_transmission">
+        <rdfs:label xml:lang="en">has transmission</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Chassis"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Transmission"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_steering">
+        <rdfs:label xml:lang="en">has steering</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Chassis"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Steering"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_fuel_tank">
+        <rdfs:label xml:lang="en">has fuel tank</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Chassis"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Fuel_Tank"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_front_tyres">
+        <rdfs:label xml:lang="en">has front tyres</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Chassis"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Tyres"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_rear_tyres">
+        <rdfs:label xml:lang="en">has rear tyres</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Chassis"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Tyres"/>
+    </owl:ObjectProperty>
+
+    <!-- BODYWORK -->
+
+     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_bodywork">
+        <rdfs:label xml:lang="en">has bodywork</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Model"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Bodywork"/>
+    </owl:ObjectProperty>
+
+    <!-- BODYWORK PROPERTIES -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_bodywork_type">
+        <rdfs:label xml:lang="en">has bodywork type</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Bodywork"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Bodywork_type"/>
+    </owl:ObjectProperty>
+
+     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_length">
+        <rdfs:label xml:lang="en">has clutch</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Bodywork"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Length"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_width">
+        <rdfs:label xml:lang="en">has width</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Bodywork"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Width"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_height">
+        <rdfs:label xml:lang="en">has height</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Bodywork"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Height"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_wheelbase">
+        <rdfs:label xml:lang="en">has wheelbase</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Bodywork"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Wheelbase"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_front_track">
+        <rdfs:label xml:lang="en">has front track</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Bodywork"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Front_track"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_rear_track">
+        <rdfs:label xml:lang="en">has rear track</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Bodywork"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Rear_track"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_weight">
+        <rdfs:label xml:lang="en">has weight</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Bodywork"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Weight"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_top_speed">
+        <rdfs:label xml:lang="en">has top speed</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Bodywork"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Speed"/>
+    </owl:ObjectProperty>
+
+    <!-- PERFORMANCE -->
+
+     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_performance">
+        <rdfs:label xml:lang="en">has performance</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Model"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Performance"/>
+    </owl:ObjectProperty>
+
+    <!-- PERFORMANCE PROPERTIES -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_acceleration_0_100">
+        <rdfs:label xml:lang="en">has acceleration(0-100)</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Performance"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Acceleration"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_max_speed">
+        <rdfs:label xml:lang="en">has max speed</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Performance"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Max_speed"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_0_400">
+        <rdfs:label xml:lang="en">has 0 to 400 time</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Performance"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Time"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#has_0_1000">
+        <rdfs:label xml:lang="en">has 0 to 1000 time</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Performance"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Time"/>
+    </owl:ObjectProperty>
+
+    <!-- MODELS DECLARATION -->
 
 	<!-- Ferrari 125 S -->
 
