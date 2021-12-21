@@ -2,13 +2,14 @@ from bs4 import BeautifulSoup
 import requests
 import os
 import time
+import json
 from colorama import Fore, Style
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 # [DEBUG SELECTOR]
-WRITE = False
-# WRITE = True
+# WRITE = False
+WRITE = True
 
 
 def debug(argument: str, clearOnNew: bool = True):
@@ -28,7 +29,7 @@ history_home_url = 'https://www.ferrari.com/en-EN/auto/'
 options = Options()
 options.add_argument('--headless')
 options.add_argument('--disable-gpu')
-driver = webdriver.Chrome(chrome_options=options)
+driver = webdriver.Chrome(options=options)
 driver.get(history_home_url + 'past-model')
 time.sleep(3)
 page_source = driver.page_source
@@ -37,10 +38,13 @@ souped_History_home = BeautifulSoup(page_source, 'html.parser')
 historySections = souped_History_home.find_all(
     'div', class_='PastModels__section__2TwZvTPv')
 
-# [Print to text controls]
-allowAll = True
+# [Print to console controls]
+allowAll = False
 stop = 0
 condition = 1
+
+lock = False
+speclock = dict()
 
 for year in historySections:
     souped_year = BeautifulSoup(str(year), 'html.parser')
@@ -76,25 +80,16 @@ for year in historySections:
         model_speclist = souped_model.find(
             'div', class_='TechSpecs__list__1_NWtTPS')
         if stop == condition and not allowAll:
+            result = json.dumps(speclock, indent=4)
+            debug(result + "", clearOnNew=False)
             exit()
         else:
             debug('\n\t<!-- Ferrari ' + model_name +
                   ' -->\n\n', clearOnNew=False)
-            debug('** Model Section starts **\n', clearOnNew=False)
-            debug('model:Ferrari ' + model_name + '\n', clearOnNew=False)
-            sectionCount = 0
-            debug('\t<owl:NamedIndividual rdf:about="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#Ferrari_' +
+            debug('\t<Model rdf:about="&ferrari-ontology;Ferrari_' +
                   model_name.replace(" ", "_").lstrip().rstrip()+'">\n', clearOnNew=False)
-            debug('\t\t<rdfs:label xml:lang="en">' + 'Ferrari '+model_name +
-                  '</rdfs:label>\n\t\t<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#car"/>\n', clearOnNew=False)
-            debug('\t\t<rdf:type rdf:resource="http://www.semanticweb.org/nope/ontologies/2021/11/history-of-ferraris#' +
-                  model_type.lower().replace(" ", "_")+'"/>\n', clearOnNew=False)
             debug("\t\t<has_trivia>" + trivia +
                   "</has_trivia>\n", clearOnNew=False)
-
-            # [added]
-            debug('trivia:' + trivia + "\n", clearOnNew=False)
-            # * ENDED
 
             for speclist_property in model_speclist:
                 souped_spec = BeautifulSoup(
@@ -103,37 +98,41 @@ for year in historySections:
                     'div', class_='Accordion__title--body-alt__3AKQP6Lg').get_text()
                 if sectionName.lower().replace(" ", "_").lstrip().rstrip() == "notes":
                     continue
-                sectionStart = "<has_" + \
-                    sectionName.lower().replace(" ", "_").lstrip().rstrip()+">"
-                sectionEnd = "</has_" + \
-                    sectionName.lower().replace(" ", "_").lstrip().rstrip()+">"
-                debug("\t\t"+sectionStart +
-                      "\n", clearOnNew=False)
-                sectionCount += 1
                 specs = [spec.get_text()
                          for spec in souped_spec.findAll('strong')]
                 specs_values = [spec_val.get_text(" ") for spec_val in souped_spec.findAll(
                     'span', class_="TechSpecs__value__1wW_OIzf")]
                 spec_list = zip(specs, specs_values)
+                debug("\n\t\t<!-- " + sectionName +
+                      " -->\n\n", clearOnNew=False)
+                if not lock:
+                    speclock[sectionName] = []
                 for spec, value in spec_list:
                     spec = spec.replace(" km/h", "").replace(" m", "")
                     while(spec.find("  ") != -1):
                         spec = spec.replace("  ", " ")
                     spec = spec.lstrip().rstrip()
-                    if spec.lower()[0:4] == "note":
-                        continue
-                    specstart = "\t\t\t<has_" + spec.lower().replace(" ", "_") + ">"
+
+                    if lock:
+                        if sectionName in speclock:
+                            if spec not in speclock[sectionName]:
+                                continue
+                        else:
+                            continue
+
+                    if not lock:
+                        speclock[sectionName].append(spec)
+
+                    if spec.lower()[0:4] == "bore":
+                        spec = "stroke"
+
+                    specstart = "\t\t<has_" + spec.lower().replace(" ", "_") + \
+                        ' rdf:datatype="&xsd;string">'
                     specend = "</has_" + spec.lower().replace(" ", "_") + ">"
                     debug(specstart + value.strip() +
                           specend + "\n", clearOnNew=False)
-                    # [new]
-                    debug(spec.lower() + ":" + value.strip() +
-                          "\n", clearOnNew=False)
-                    # * ended
-                debug("\t\t"+sectionEnd +
-                      "\n", clearOnNew=False)
-                sectionCount += 1
-            debug("\t</owl:NamedIndividual>\n", clearOnNew=False)
+            lock = True
+            debug("\t</Model>\n", clearOnNew=False)
         stop += 1
 
 driver.quit()

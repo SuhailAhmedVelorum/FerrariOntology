@@ -2,3 +2,4 @@ Addl/
 __pycache__/
 debug.txt
 creds.py
+chromedriver.exe
